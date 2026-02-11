@@ -15,9 +15,10 @@ export const resume = {
     zh: '台灣',
     en: 'Taiwan',
   },
-  email: 'vick.liao.dev@gmail.com',
-  github: 'https://github.com/vickliao',
-  linkedin: 'https://linkedin.com/in/vickliao',
+  phone: '0908268080',
+  email: 'try890928@gmail.com',
+  github: 'https://github.com/890928',
+  linkedin: 'https://www.linkedin.com/in/vickliao',
   about: {
     zh: '具備 3 年以上全端開發經驗的工程師，專精 Node.js / NestJS 後端架構設計與 React 前端開發。曾主導外送整合平台從 Express 到 NestJS 的架構遷移，服務超過 150 間門市、日處理 5,000+ 筆訂單。熟悉 Docker 容器化部署與 CI/CD 流程，致力於以工程思維解決實際商業問題。',
     en: 'Full-stack engineer with 3+ years of experience, specializing in Node.js/NestJS backend architecture and React frontend development. Led the architecture migration of a delivery integration platform from Express to NestJS, serving 150+ stores with 5,000+ daily orders. Proficient in Docker containerization and CI/CD pipelines, committed to solving real business problems with engineering thinking.',
@@ -168,9 +169,10 @@ export const resume = {
     },
   ],
   contact: {
-    email: 'vick.liao.dev@gmail.com',
-    github: 'https://github.com/vickliao',
-    linkedin: 'https://linkedin.com/in/vickliao',
+    phone: '0908268080',
+    email: 'try890928@gmail.com',
+    github: 'https://github.com/890928',
+    linkedin: 'https://www.linkedin.com/in/vickliao',
   },
 } as const;
 
