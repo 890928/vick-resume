@@ -139,12 +139,22 @@ export default function Hero() {
             className="text-terminal-green text-[10px] sm:text-xs mt-12 hidden md:block select-none font-normal"
             aria-hidden="true"
           >
-{`╔══════════════════════════════════════╗
-║  ${t('ascii_status').padEnd(36)}║
-║  ${t('ascii_role').padEnd(36)}║
-║  ${t('ascii_stack').padEnd(36)}║
-║  ${t('ascii_open').padEnd(36)}║
-╚══════════════════════════════════════╝`}
+{(() => {
+              const lines = [t('ascii_status'), t('ascii_role'), t('ascii_stack'), t('ascii_open')];
+              const boxWidth = 38;
+              const pad = (s: string) => {
+                // Count CJK characters as width 2
+                let w = 0;
+                for (const ch of s) w += ch.charCodeAt(0) > 0x7f ? 2 : 1;
+                const remaining = boxWidth - 2 - w;
+                return s + ' '.repeat(Math.max(0, remaining));
+              };
+              return [
+                '╔' + '═'.repeat(boxWidth) + '╗',
+                ...lines.map((l) => `║  ${pad(l)}║`),
+                '╚' + '═'.repeat(boxWidth) + '╝',
+              ].join('\n');
+            })()}
           </motion.pre>
         </motion.div>
       </div>
