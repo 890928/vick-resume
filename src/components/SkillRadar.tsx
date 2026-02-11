@@ -11,13 +11,14 @@ import {
 } from 'recharts';
 import { resume } from '@/data/resume';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const categories = ['frontend', 'backend', 'devops'] as const;
 
-const colors: Record<string, string> = {
-  frontend: '#00FF41',
-  backend: '#00BFFF',
-  devops: '#FF6B6B',
+const colors: Record<string, { stroke: string; fill: string }> = {
+  frontend: { stroke: '#00FF41', fill: '#00FF41' },
+  backend: { stroke: '#00D1FF', fill: '#00D1FF' },
+  devops: { stroke: '#A855F7', fill: '#A855F7' },
 };
 
 export default function SkillRadar() {
@@ -29,9 +30,11 @@ export default function SkillRadar() {
     value: skill.level,
   }));
 
+  const color = colors[active] ?? colors.backend;
+
   return (
     <div className="space-y-4">
-      <h3 className="text-terminal-green text-sm font-bold">{t('skills_title')}</h3>
+      <h3 className="gradient-text text-sm font-bold">{t('skills_title')}</h3>
 
       {/* Category tabs */}
       <div className="flex gap-2">
@@ -39,10 +42,10 @@ export default function SkillRadar() {
           <button
             key={cat}
             onClick={() => setActive(cat)}
-            className={`px-3 py-1 text-xs border transition-all duration-200 ${
+            className={`px-3 py-1 text-xs border transition-all duration-200 rounded-full ${
               active === cat
                 ? 'border-terminal-green text-terminal-green bg-terminal-green/10'
-                : 'border-card-border text-text-muted hover:border-text-muted'
+                : 'border-card-border text-text-muted hover:border-text-muted hover:text-text-secondary'
             }`}
           >
             {t(cat)}
@@ -51,10 +54,10 @@ export default function SkillRadar() {
       </div>
 
       {/* Radar chart */}
-      <div className="w-full h-[280px]">
+      <div className="w-full h-[260px]">
         <ResponsiveContainer width="100%" height="100%">
           <RadarChart data={data} cx="50%" cy="50%" outerRadius="70%">
-            <PolarGrid stroke="#21262D" />
+            <PolarGrid stroke="#21262D" strokeDasharray="3 3" />
             <PolarAngleAxis
               dataKey="name"
               tick={{ fill: '#8B949E', fontSize: 11 }}
@@ -62,32 +65,33 @@ export default function SkillRadar() {
             <PolarRadiusAxis
               angle={90}
               domain={[0, 100]}
-              tick={{ fill: '#8B949E', fontSize: 9 }}
+              tick={false}
               axisLine={false}
             />
             <Radar
               dataKey="value"
-              stroke={colors[active]}
-              fill={colors[active]}
-              fillOpacity={0.2}
+              stroke={color.stroke}
+              fill={color.fill}
+              fillOpacity={0.15}
               strokeWidth={2}
             />
           </RadarChart>
         </ResponsiveContainer>
       </div>
 
-      {/* Skill bars fallback */}
-      <div className="space-y-2">
-        {data.map((skill) => (
+      {/* Skill bars */}
+      <div className="space-y-2.5">
+        {data.map((skill, i) => (
           <div key={skill.name} className="flex items-center gap-3 text-xs">
-            <span className="w-20 text-text-muted">{skill.name}</span>
-            <div className="flex-1 h-1.5 bg-card-border rounded-full overflow-hidden">
-              <div
-                className="h-full rounded-full transition-all duration-500"
-                style={{
-                  width: `${skill.value}%`,
-                  backgroundColor: colors[active],
-                }}
+            <span className="w-20 text-text-muted shrink-0">{skill.name}</span>
+            <div className="flex-1 h-1.5 bg-card-border/50 rounded-full overflow-hidden">
+              <motion.div
+                initial={{ width: 0 }}
+                whileInView={{ width: `${skill.value}%` }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: i * 0.1, ease: 'easeOut' }}
+                className="h-full rounded-full"
+                style={{ backgroundColor: color.stroke }}
               />
             </div>
             <span className="text-text-muted w-8 text-right">{skill.value}%</span>

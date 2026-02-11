@@ -12,6 +12,8 @@
   --color-accent: #00FF41;
   --color-text-muted: #8B949E;
   --color-text-secondary: #C9D1D9;
+  --color-cyan: #00D1FF;
+  --color-purple: #A855F7;
 
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
 }
@@ -40,45 +42,108 @@ body {
   color: var(--color-background);
 }
 
-/* Terminal cursor blink animation */
+/* Terminal cursor blink */
 @keyframes blink {
   0%, 50% { opacity: 1; }
   51%, 100% { opacity: 0; }
 }
-
 .cursor-blink {
   animation: blink 1s step-end infinite;
 }
 
-/* Glow effect */
+/* Glow effects */
 .glow-green {
   text-shadow: 0 0 10px rgba(0, 255, 65, 0.5), 0 0 20px rgba(0, 255, 65, 0.3);
 }
+.glow-green-box {
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.08), 0 0 30px rgba(0, 255, 65, 0.04);
+}
+.glow-green-border {
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.15), inset 0 0 10px rgba(0, 255, 65, 0.03);
+}
+
+/* Card hover lift */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 255, 65, 0.08), 0 0 1px rgba(0, 255, 65, 0.3);
+  border-color: rgba(0, 255, 65, 0.4);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #00FF41, #00D1FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gradient border effect */
+.gradient-border {
+  position: relative;
+}
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(0,255,65,0.3), rgba(0,209,255,0.3));
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Pulse dot */
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+}
+.pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* Number count-up shimmer */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer-text {
+  background: linear-gradient(90deg, #00FF41 0%, #00D1FF 50%, #00FF41 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s ease-in-out infinite;
+}
 
 /* Scrollbar for webkit */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: var(--color-terminal-border);
-  border-radius: 3px;
-}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-terminal-border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-text-muted); }
 
-/* Scanline effect overlay */
-/* #8: Accessibility focus styles */
+/* Focus styles */
 :focus-visible {
   outline: 2px solid var(--color-terminal-green);
   outline-offset: 2px;
 }
 
-/* #3: Scroll offset for fixed navbar */
+/* Scroll offset for fixed navbar */
 html {
   scroll-padding-top: 64px;
 }
 
+/* Section separator */
+.section-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-card-border) 20%, var(--color-terminal-green) 50%, var(--color-card-border) 80%, transparent);
+  opacity: 0.5;
+}
+
+/* Scanline overlay */
 .scanlines::after {
   content: '';
   position: absolute;
@@ -91,4 +156,36 @@ html {
     rgba(0, 255, 65, 0.015) 4px
   );
   pointer-events: none;
+}
+
+/* Tag pill style */
+.tag-pill {
+  font-size: 11px;
+  padding: 2px 10px;
+  border: 1px solid var(--color-card-border);
+  color: var(--color-terminal-green);
+  background: rgba(0, 255, 65, 0.05);
+  transition: all 0.2s ease;
+}
+.tag-pill:hover {
+  border-color: var(--color-terminal-green);
+  background: rgba(0, 255, 65, 0.12);
+}
+
+/* Button glow */
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.btn-glow::after {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: radial-gradient(circle, rgba(0,255,65,0.15) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.btn-glow:hover::after {
+  opacity: 1;
 }
