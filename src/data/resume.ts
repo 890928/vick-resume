@@ -47,9 +47,9 @@ export const resume = {
   experience: [
     {
       id: 'quickclick',
-      company: { zh: 'QuickClick 快點科技', en: 'QuickClick Technology' },
-      title: { zh: '全端工程師', en: 'Full-Stack Engineer' },
-      period: { zh: '2022.06 - 至今', en: '2022.06 - Present' },
+      company: { zh: 'QuickClick快一點 / 點點全球股份有限公司', en: 'QuickClick / DianDian Global Co., Ltd.' },
+      title: { zh: '後端工程師', en: 'Backend Engineer' },
+      period: { zh: '2024.09 - 至今', en: '2024.09 - Present' },
       filename: 'quickclick.ts',
       tags: ['NestJS', 'React', 'MySQL', 'Docker', 'Redis'],
       description: {
@@ -71,37 +71,57 @@ export const resume = {
     },
     {
       id: 'cloudlife',
-      company: { zh: '雲端生活家', en: 'CloudLife' },
-      title: { zh: '後端工程師', en: 'Backend Engineer' },
-      period: { zh: '2021.03 - 2022.05', en: '2021.03 - 2022.05' },
+      company: { zh: '雲端生活家股份有限公司', en: 'CloudLife Co., Ltd.' },
+      title: { zh: '全端工程師', en: 'Full-Stack Engineer' },
+      period: { zh: '2023.06 - 2024.08', en: '2023.06 - 2024.08' },
       filename: 'cloudlife.ts',
-      tags: ['Node.js', '.NET Core', 'MySQL', 'Vue'],
+      tags: ['Node.js', '.NET Core', 'MySQL', 'Vue', 'React'],
       description: {
         zh: [
           '開發租屋管理平台，實作房源管理、租約管理、金流串接等核心模組，服務數千名房東與租客',
-          '負責票務平台後端開發（兒童新樂園、黑膠博物館），處理票券核銷、場次管理與即時庫存同步',
+          '負責票務平台全端開發（兒童新樂園、黑膠博物館），處理票券核銷、場次管理與即時庫存同步',
           '使用 .NET Core 與 Node.js 雙技術棧進行開發，依專案需求靈活選擇技術方案',
         ],
         en: [
           'Developed rental management platform with property management, lease management, and payment integration modules, serving thousands of landlords and tenants',
-          'Built ticketing platform backend (Taipei Children\'s Amusement Park, Vinyl Museum) handling ticket validation, session management, and real-time inventory sync',
+          'Built ticketing platform full-stack (Taipei Children\'s Amusement Park, Vinyl Museum) handling ticket validation, session management, and real-time inventory sync',
           'Worked with dual tech stacks (.NET Core & Node.js), flexibly choosing technologies based on project requirements',
         ],
       },
     },
     {
-      id: 'intern',
-      company: { zh: '實習經歷', en: 'Internship' },
-      title: { zh: '軟體工程實習生', en: 'Software Engineering Intern' },
-      period: { zh: '2020.07 - 2021.02', en: '2020.07 - 2021.02' },
-      filename: 'intern.ts',
-      tags: ['JavaScript', 'Python', 'SQL'],
+      id: 'ctbc',
+      company: { zh: '中國信託金融控股', en: 'CTBC Financial Holding' },
+      title: { zh: '實習工程師', en: 'Engineering Intern' },
+      period: { zh: '2023.02 - 2023.06', en: '2023.02 - 2023.06' },
+      filename: 'ctbc.ts',
+      tags: ['Java', 'Spring', 'Oracle', 'Angular'],
       description: {
         zh: [
-          '參與內部工具開發，協助自動化流程建置與資料庫維護，奠定軟體工程基礎能力',
+          '參與內部金融系統開發與維護，負責後端 API 開發與資料庫優化',
+          '配合金融法規需求進行系統功能調整，確保系統穩定性與合規性',
         ],
         en: [
-          'Participated in internal tool development, assisted in automation workflow setup and database maintenance, building foundational software engineering skills',
+          'Participated in internal financial system development and maintenance, responsible for backend API development and database optimization',
+          'Adjusted system features according to financial regulatory requirements, ensuring system stability and compliance',
+        ],
+      },
+    },
+    {
+      id: 'cathay',
+      company: { zh: '國泰人壽', en: 'Cathay Life Insurance' },
+      title: { zh: '實習工程師', en: 'Engineering Intern' },
+      period: { zh: '2022.07 - 2023.01', en: '2022.07 - 2023.01' },
+      filename: 'cathay.ts',
+      tags: ['Java', '.NET', 'SQL Server', 'Angular'],
+      description: {
+        zh: [
+          '負責保險業務系統模組開發，協助數位化轉型專案推進',
+          '參與內部系統整合與自動化流程建置，提升作業效率',
+        ],
+        en: [
+          'Developed insurance business system modules, supporting digital transformation initiatives',
+          'Participated in internal system integration and automation workflow setup, improving operational efficiency',
         ],
       },
     },
