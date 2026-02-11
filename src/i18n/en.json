@@ -1,0 +1,45 @@
+{
+  "nav": {
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "cta_resume": "Download Resume",
+    "cta_projects": "View Projects"
+  },
+  "terminal": {
+    "title": "terminal",
+    "welcome": "Welcome to Vick's interactive terminal. Type 'help' for available commands.",
+    "help_text": "Available commands:\n  help          - Show available commands\n  ls            - List viewable files\n  cat about.md  - View about me\n  cat skills.json - View skills\n  open resume.pdf - Download resume PDF\n  clear         - Clear screen",
+    "ls_output": "about.md    skills.json    resume.pdf    projects/",
+    "not_found": "Command not found. Type 'help' for available commands."
+  },
+  "about": {
+    "title": "// About Me",
+    "skills_title": "Skill Radar",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "devops": "DevOps"
+  },
+  "experience": {
+    "title": "// Experience",
+    "explorer": "Explorer",
+    "folder": "experience"
+  },
+  "projects": {
+    "title": "// Projects",
+    "status": "Status",
+    "stack": "Stack",
+    "highlights": "Highlights",
+    "view_arch": "View Architecture"
+  },
+  "contact": {
+    "title": "// Contact",
+    "download_resume": "Download Resume PDF",
+    "email": "Email",
+    "footer": "© 2024 Vick Liao. Built with Next.js."
+  }
+}
