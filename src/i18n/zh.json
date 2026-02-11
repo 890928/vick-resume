@@ -1,0 +1,45 @@
+{
+  "nav": {
+    "about": "關於我",
+    "experience": "工作經歷",
+    "projects": "專案",
+    "contact": "聯絡"
+  },
+  "hero": {
+    "greeting": "你好，我是",
+    "cta_resume": "下載履歷",
+    "cta_projects": "查看專案"
+  },
+  "terminal": {
+    "title": "terminal",
+    "welcome": "歡迎來到 Vick 的互動終端機。輸入 'help' 查看可用指令。",
+    "help_text": "可用指令：\n  help          - 顯示可用指令\n  ls            - 列出可查看的檔案\n  cat about.md  - 查看關於我\n  cat skills.json - 查看技能\n  open resume.pdf - 下載履歷 PDF\n  clear         - 清除畫面",
+    "ls_output": "about.md    skills.json    resume.pdf    projects/",
+    "not_found": "指令未找到。輸入 'help' 查看可用指令。"
+  },
+  "about": {
+    "title": "// 關於我",
+    "skills_title": "技能雷達",
+    "frontend": "前端",
+    "backend": "後端",
+    "devops": "DevOps"
+  },
+  "experience": {
+    "title": "// 工作經歷",
+    "explorer": "檔案總管",
+    "folder": "experience"
+  },
+  "projects": {
+    "title": "// 專案展示",
+    "status": "狀態",
+    "stack": "技術棧",
+    "highlights": "亮點",
+    "view_arch": "查看架構圖"
+  },
+  "contact": {
+    "title": "// 聯絡我",
+    "download_resume": "下載履歷 PDF",
+    "email": "電子郵件",
+    "footer": "© 2024 廖致翰 (Vick Liao). 以 Next.js 打造。"
+  }
+}
