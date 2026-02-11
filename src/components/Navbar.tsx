@@ -1,8 +1,8 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
-import { usePathname, useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useTranslations, useLocale } from 'next-intl';
+import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
 
 const navItems = [
   { key: 'about', href: '#about' },
@@ -13,28 +13,38 @@ const navItems = [
 
 export default function Navbar() {
   const t = useTranslations('nav');
-  const pathname = usePathname();
+  const locale = useLocale();
   const router = useRouter();
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const currentLocale = pathname.startsWith('/en') ? 'en' : 'zh';
-
   const toggleLocale = () => {
-    const newLocale = currentLocale === 'zh' ? 'en' : 'zh';
-    const pathWithoutLocale = pathname.replace(/^\/(zh|en)/, '') || '/';
-    router.push(`/${newLocale}${pathWithoutLocale}`);
+    const newLocale = locale === 'zh' ? 'en' : 'zh';
+    router.push(`/${newLocale}`);
   };
 
+  // #2: scroll with offset for fixed navbar
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
     const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: 'smooth' });
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.scrollY - 64;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
   };
 
+  // Close mobile menu on Escape
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMobileOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-card-border bg-background/80 backdrop-blur-md">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-card-border bg-background/80 backdrop-blur-md" role="navigation" aria-label="Main navigation">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <a href="#" className="text-terminal-green font-bold text-lg glow-green">
+        <a href="#" className="text-terminal-green font-bold text-lg glow-green" aria-label="Home">
           {'>'} vick.liao
         </a>
 
@@ -52,8 +62,9 @@ export default function Navbar() {
           <button
             onClick={toggleLocale}
             className="border border-terminal-green text-terminal-green px-3 py-1 text-xs hover:bg-terminal-green hover:text-background transition-colors"
+            aria-label={locale === 'zh' ? 'Switch to English' : '切換為中文'}
           >
-            {currentLocale === 'zh' ? 'EN' : '中文'}
+            {locale === 'zh' ? 'EN' : '中文'}
           </button>
         </div>
 
@@ -62,8 +73,9 @@ export default function Navbar() {
           className="md:hidden text-terminal-green"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
             {mobileOpen ? (
               <path d="M6 6l12 12M6 18L18 6" />
             ) : (
@@ -89,7 +101,7 @@ export default function Navbar() {
             onClick={toggleLocale}
             className="border border-terminal-green text-terminal-green px-3 py-1 text-xs hover:bg-terminal-green hover:text-background transition-colors w-fit"
           >
-            {currentLocale === 'zh' ? 'EN' : '中文'}
+            {locale === 'zh' ? 'EN' : '中文'}
           </button>
         </div>
       )}

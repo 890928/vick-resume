@@ -68,6 +68,17 @@ body {
 }
 
 /* Scanline effect overlay */
+/* #8: Accessibility focus styles */
+:focus-visible {
+  outline: 2px solid var(--color-terminal-green);
+  outline-offset: 2px;
+}
+
+/* #3: Scroll offset for fixed navbar */
+html {
+  scroll-padding-top: 64px;
+}
+
 .scanlines::after {
   content: '';
   position: absolute;

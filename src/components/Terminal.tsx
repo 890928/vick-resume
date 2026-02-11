@@ -1,16 +1,14 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { useTranslations } from 'next-intl';
-import { usePathname } from 'next/navigation';
+import { useTranslations, useLocale } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import { processCommand, type TerminalLine } from '@/lib/terminal-commands';
 import type { Locale } from '@/i18n/config';
 
 export default function Terminal() {
   const t = useTranslations('terminal');
-  const pathname = usePathname();
-  const locale = (pathname.startsWith('/en') ? 'en' : 'zh') as Locale;
+  const locale = useLocale() as Locale;
 
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState('');
@@ -56,15 +54,15 @@ export default function Terminal() {
       e.preventDefault();
       if (!input.trim()) return;
 
+      const cmd = input.slice(0, 200); // #7: limit input length
       const newLines: TerminalLine[] = [
         ...lines,
-        { type: 'input', content: input },
+        { type: 'input', content: cmd },
       ];
 
-      const result = processCommand(input, locale);
+      const result = processCommand(cmd, locale);
 
       if (result === null) {
-        // Clear command
         setLines([{ type: 'output', content: t('welcome') }]);
       } else if (result === '__OPEN_RESUME__') {
         newLines.push({ type: 'output', content: 'Opening resume.pdf...' });
@@ -86,7 +84,7 @@ export default function Terminal() {
       <button
         onClick={() => setIsOpen(true)}
         className="fixed bottom-6 right-6 z-40 bg-card-bg border border-terminal-green text-terminal-green px-4 py-2 text-xs hover:bg-terminal-green hover:text-background transition-all duration-300"
-        title="Open Terminal (Ctrl+K)"
+        aria-label="Open Terminal (Ctrl+K)"
       >
         {'>'}_
       </button>
@@ -101,13 +99,16 @@ export default function Terminal() {
               exit={{ opacity: 0 }}
               className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm"
               onClick={() => setIsOpen(false)}
+              aria-hidden="true"
             />
             <motion.div
               initial={{ opacity: 0, y: -20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.95 }}
               transition={{ duration: 0.2 }}
-              className="fixed top-[10%] left-1/2 -translate-x-1/2 z-50 w-[90vw] max-w-2xl"
+              className="fixed top-[10%] left-1/2 -translate-x-1/2 z-50 w-[calc(100vw-32px)] max-w-2xl"
+              role="dialog"
+              aria-label="Interactive Terminal"
             >
               <div className="border border-card-border rounded-lg overflow-hidden shadow-2xl shadow-terminal-green/5">
                 {/* Title bar */}
@@ -117,34 +118,37 @@ export default function Terminal() {
                       <button
                         onClick={() => setIsOpen(false)}
                         className="w-3 h-3 rounded-full bg-red-500 hover:bg-red-400"
+                        aria-label="Close terminal"
                       />
-                      <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                      <div className="w-3 h-3 rounded-full bg-green-500" />
+                      <div className="w-3 h-3 rounded-full bg-yellow-500" aria-hidden="true" />
+                      <div className="w-3 h-3 rounded-full bg-green-500" aria-hidden="true" />
                     </div>
                     <span className="text-text-muted text-xs ml-2">
-                      vick@portfolio:~$
+                      {t('prompt')}
                     </span>
                   </div>
                   <span className="text-text-muted text-xs">
-                    ⌘K to toggle
+                    {t('toggle_hint')}
                   </span>
                 </div>
 
                 {/* Terminal body */}
                 <div
                   ref={scrollRef}
-                  className="bg-terminal-bg p-4 h-[400px] overflow-y-auto"
+                  className="bg-terminal-bg p-4 h-[50vh] max-h-[400px] overflow-y-auto"
                   onClick={() => inputRef.current?.focus()}
+                  role="log"
+                  aria-live="polite"
                 >
                   {lines.map((line, i) => (
                     <div key={i} className="mb-1">
                       {line.type === 'input' ? (
                         <div className="flex gap-2">
-                          <span className="text-terminal-green">$</span>
+                          <span className="text-terminal-green" aria-hidden="true">$</span>
                           <span className="text-foreground">{line.content}</span>
                         </div>
                       ) : (
-                        <pre className="text-text-secondary text-sm whitespace-pre-wrap">
+                        <pre className="text-text-secondary text-sm whitespace-pre-wrap break-words">
                           {line.content}
                         </pre>
                       )}
@@ -153,11 +157,14 @@ export default function Terminal() {
 
                   {/* Input line */}
                   <form onSubmit={handleSubmit} className="flex gap-2 items-center">
-                    <span className="text-terminal-green">$</span>
+                    <span className="text-terminal-green" aria-hidden="true">$</span>
+                    <label htmlFor="terminal-input" className="sr-only">Terminal command input</label>
                     <input
+                      id="terminal-input"
                       ref={inputRef}
                       value={input}
                       onChange={(e) => setInput(e.target.value)}
+                      maxLength={200}
                       className="flex-1 bg-transparent outline-none text-foreground caret-terminal-green"
                       spellCheck={false}
                       autoComplete="off"

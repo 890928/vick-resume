@@ -1,19 +1,24 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
-import { usePathname } from 'next/navigation';
+import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import { resume } from '@/data/resume';
 import SkillRadar from './SkillRadar';
+import ErrorBoundary from './ErrorBoundary';
 import type { Locale } from '@/i18n/config';
 
 export default function About() {
   const t = useTranslations('about');
-  const pathname = usePathname();
-  const locale = (pathname.startsWith('/en') ? 'en' : 'zh') as Locale;
+  const locale = useLocale() as Locale;
+
+  const stats = [
+    { label: t('stat_exp'), value: '3+' },
+    { label: t('stat_stores'), value: '5K+' },
+    { label: t('stat_orders'), value: '5K+' },
+  ];
 
   return (
-    <section id="about" className="py-20 px-4">
+    <section id="about" className="py-20 px-4" aria-label={t('title')}>
       <div className="max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, x: -20 }}
@@ -33,7 +38,7 @@ export default function About() {
             className="space-y-4"
           >
             <div className="border border-card-border rounded-lg p-6 bg-card-bg">
-              <div className="text-text-muted text-xs mb-3">
+              <div className="text-text-muted text-xs mb-3" aria-hidden="true">
                 {'// about.md'}
               </div>
               <p className="text-text-secondary text-sm leading-relaxed">
@@ -43,11 +48,7 @@ export default function About() {
 
             {/* Quick stats */}
             <div className="grid grid-cols-3 gap-3">
-              {[
-                { label: locale === 'zh' ? '年經驗' : 'Yrs Exp', value: '3+' },
-                { label: locale === 'zh' ? '合作店家' : 'Stores', value: '5K+' },
-                { label: locale === 'zh' ? '日訂單量' : 'Daily Orders', value: '5K+' },
-              ].map((stat) => (
+              {stats.map((stat) => (
                 <div
                   key={stat.label}
                   className="border border-card-border rounded p-3 bg-card-bg text-center"
@@ -59,7 +60,7 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Skill radar */}
+          {/* #6: Skill radar wrapped in ErrorBoundary */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -67,7 +68,9 @@ export default function About() {
             transition={{ delay: 0.2 }}
             className="border border-card-border rounded-lg p-6 bg-card-bg"
           >
-            <SkillRadar />
+            <ErrorBoundary>
+              <SkillRadar />
+            </ErrorBoundary>
           </motion.div>
         </div>
       </div>
