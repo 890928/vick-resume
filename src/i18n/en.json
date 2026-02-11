@@ -51,6 +51,7 @@
   "contact": {
     "title": "// Contact",
     "download_resume": "Download Resume PDF",
+    "phone": "Phone",
     "email": "Email",
     "footer": "Vick Liao. Built with Next.js.",
     "built_with": "// Built with Next.js + Tailwind CSS + Framer Motion"

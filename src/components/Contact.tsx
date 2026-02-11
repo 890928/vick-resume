@@ -50,6 +50,7 @@ export default function Contact() {
             {/* #3: overflow-x-auto for mobile */}
             <pre className="text-text-secondary text-xs leading-relaxed overflow-x-auto">
 {`{
+  "phone": "${resume.contact.phone}",
   "email": "${resume.contact.email}",
   "github": "${resume.contact.github}",
   "linkedin": "${resume.contact.linkedin}"
@@ -58,6 +59,13 @@ export default function Contact() {
 
             {/* Action links */}
             <div className="flex flex-wrap gap-3 pt-4">
+              <a
+                href={`tel:${resume.contact.phone}`}
+                className="border border-terminal-green text-terminal-green px-4 py-2 text-xs hover:bg-terminal-green hover:text-background transition-colors"
+                aria-label={`${t('phone')}: ${resume.contact.phone}`}
+              >
+                {'>'} {t('phone')}
+              </a>
               <a
                 href={`mailto:${resume.contact.email}`}
                 className="border border-terminal-green text-terminal-green px-4 py-2 text-xs hover:bg-terminal-green hover:text-background transition-colors"
