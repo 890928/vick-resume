@@ -54,6 +54,6 @@
     "phone": "電話",
     "email": "電子郵件",
     "footer": "廖致翰 (Vick Liao). 以 Next.js 打造。",
-    "built_with": "// Built with Next.js + Tailwind CSS + Framer Motion"
+    "built_with": "// 以 Next.js + Tailwind CSS + Framer Motion 打造"
   }
 }

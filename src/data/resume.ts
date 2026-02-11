@@ -15,7 +15,7 @@ export const resume = {
     zh: '台灣',
     en: 'Taiwan',
   },
-  phone: '0908268080',
+  phone: '+886 908268080',
   email: 'try890928@gmail.com',
   github: 'https://github.com/890928',
   linkedin: 'https://www.linkedin.com/in/vickliao',
@@ -199,7 +199,7 @@ export const resume = {
     },
   ],
   contact: {
-    phone: '0908268080',
+    phone: '+886 908268080',
     email: 'try890928@gmail.com',
     github: 'https://github.com/890928',
     linkedin: 'https://www.linkedin.com/in/vickliao',

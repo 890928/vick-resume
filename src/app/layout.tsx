@@ -28,12 +28,21 @@ export const metadata: Metadata = {
     locale: 'zh_TW',
     alternateLocale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: '廖致翰 Vick Liao | Full-Stack Engineer',
+      },
+    ],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: '廖致翰 Vick Liao | Full-Stack Engineer',
     description:
       'Full-stack engineer specializing in Node.js, NestJS, React, and Docker.',
+    images: ['/opengraph-image'],
   },
   alternates: {
     canonical: 'https://vick-resume.vercel.app',

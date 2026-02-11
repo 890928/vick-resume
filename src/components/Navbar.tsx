@@ -40,7 +40,7 @@ export default function Navbar() {
       const sections = ['about', 'experience', 'projects', 'contact'];
       for (const id of sections.reverse()) {
         const el = document.getElementById(id);
-        if (el && el.getBoundingClientRect().top <= 100) {
+        if (el && el.getBoundingClientRect().top <= 80) {
           setActiveSection(id);
           return;
         }

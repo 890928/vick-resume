@@ -3,8 +3,10 @@
 import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import { resume } from '@/data/resume';
-import SkillRadar from './SkillRadar';
+import { lazy, Suspense } from 'react';
 import ErrorBoundary from './ErrorBoundary';
+
+const SkillRadar = lazy(() => import('./SkillRadar'));
 import type { Locale } from '@/i18n/config';
 
 function AnimatedStat({ value, label, delay }: { value: string; label: string; delay: number }) {
@@ -59,7 +61,7 @@ export default function About() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <AnimatedStat value="3" label={t('stat_exp')} delay={0} />
               <AnimatedStat value="5K+" label={t('stat_stores')} delay={0.1} />
               <AnimatedStat value="5K+" label={t('stat_orders')} delay={0.2} />
@@ -74,7 +76,9 @@ export default function About() {
             className="border border-card-border rounded-lg p-6 bg-card-bg glow-green-box"
           >
             <ErrorBoundary>
-              <SkillRadar />
+              <Suspense fallback={<div className="h-[400px] flex items-center justify-center text-text-muted text-sm">Loading skills...</div>}>
+                <SkillRadar />
+              </Suspense>
             </ErrorBoundary>
           </motion.div>
         </div>
