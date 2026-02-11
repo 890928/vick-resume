@@ -12,7 +12,7 @@ export default function About() {
   const locale = useLocale() as Locale;
 
   const stats = [
-    { label: t('stat_exp'), value: '3+' },
+    { label: t('stat_exp'), value: '2~3' },
     { label: t('stat_stores'), value: '5K+' },
     { label: t('stat_orders'), value: '5K+' },
   ];
