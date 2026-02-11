@@ -1,21 +1,22 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
-import { usePathname } from 'next/navigation';
+import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import { resume } from '@/data/resume';
-import ArchitectureDiagram from './ArchitectureDiagram';
+import ErrorBoundary from './ErrorBoundary';
 import type { Locale } from '@/i18n/config';
+
+// #7: Lazy load heavy ReactFlow component
+const ArchitectureDiagram = lazy(() => import('./ArchitectureDiagram'));
 
 export default function Projects() {
   const t = useTranslations('projects');
-  const pathname = usePathname();
-  const locale = (pathname.startsWith('/en') ? 'en' : 'zh') as Locale;
+  const locale = useLocale() as Locale;
   const [showArch, setShowArch] = useState(false);
 
   return (
-    <section id="projects" className="py-20 px-4">
+    <section id="projects" className="py-20 px-4" aria-label={t('title')}>
       <div className="max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, x: -20 }}
@@ -45,12 +46,13 @@ export default function Projects() {
                         ? 'bg-green-500 shadow-[0_0_6px_rgba(34,197,94,0.5)]'
                         : 'bg-gray-500'
                     }`}
+                    aria-hidden="true"
                   />
                   <span className="text-text-muted text-xs">
                     {t('status')}: {project.status}
                   </span>
                 </div>
-                <span className="text-text-muted text-xs">
+                <span className="text-text-muted text-xs" aria-hidden="true">
                   CONTAINER
                 </span>
               </div>
@@ -100,6 +102,7 @@ export default function Projects() {
                   <button
                     onClick={() => setShowArch(!showArch)}
                     className="border border-terminal-green text-terminal-green px-3 py-1 text-xs hover:bg-terminal-green hover:text-background transition-colors"
+                    aria-expanded={showArch}
                   >
                     {t('view_arch')}
                   </button>
@@ -109,7 +112,7 @@ export default function Projects() {
           ))}
         </div>
 
-        {/* Architecture Diagram Modal */}
+        {/* #6 + #7: Architecture Diagram with ErrorBoundary + lazy load */}
         {showArch && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -118,16 +121,27 @@ export default function Projects() {
           >
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-terminal-green text-sm font-bold">
-                QuickClick Architecture
+                {t('arch_title')}
               </h3>
               <button
                 onClick={() => setShowArch(false)}
                 className="text-text-muted hover:text-foreground text-xs"
+                aria-label={t('close')}
               >
-                [close]
+                [{t('close')}]
               </button>
             </div>
-            <ArchitectureDiagram />
+            <ErrorBoundary>
+              <Suspense
+                fallback={
+                  <div className="h-[300px] flex items-center justify-center text-text-muted text-sm">
+                    Loading architecture diagram...
+                  </div>
+                }
+              >
+                <ArchitectureDiagram />
+              </Suspense>
+            </ErrorBoundary>
           </motion.div>
         )}
       </div>

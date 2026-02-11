@@ -8,38 +8,51 @@
   "hero": {
     "greeting": "Hi, I'm",
     "cta_resume": "Download Resume",
-    "cta_projects": "View Projects"
+    "cta_projects": "View Projects",
+    "ascii_status": "System Status: Online",
+    "ascii_role": "Role: Full-Stack Engineer",
+    "ascii_stack": "Stack: Node.js / NestJS / React",
+    "ascii_open": "Status: Open to opportunities"
   },
   "terminal": {
     "title": "terminal",
+    "prompt": "vick@portfolio:~$",
     "welcome": "Welcome to Vick's interactive terminal. Type 'help' for available commands.",
     "help_text": "Available commands:\n  help          - Show available commands\n  ls            - List viewable files\n  cat about.md  - View about me\n  cat skills.json - View skills\n  open resume.pdf - Download resume PDF\n  clear         - Clear screen",
     "ls_output": "about.md    skills.json    resume.pdf    projects/",
-    "not_found": "Command not found. Type 'help' for available commands."
+    "not_found": "Command not found. Type 'help' for available commands.",
+    "toggle_hint": "⌘K to toggle"
   },
   "about": {
     "title": "// About Me",
     "skills_title": "Skill Radar",
     "frontend": "Frontend",
     "backend": "Backend",
-    "devops": "DevOps"
+    "devops": "DevOps",
+    "stat_exp": "Yrs Exp",
+    "stat_stores": "Stores",
+    "stat_orders": "Daily Orders"
   },
   "experience": {
     "title": "// Experience",
     "explorer": "Explorer",
-    "folder": "experience"
+    "folder": "experience",
+    "achievements": "// Achievements"
   },
   "projects": {
     "title": "// Projects",
     "status": "Status",
     "stack": "Stack",
     "highlights": "Highlights",
-    "view_arch": "View Architecture"
+    "view_arch": "View Architecture",
+    "arch_title": "QuickClick Architecture",
+    "close": "Close"
   },
   "contact": {
     "title": "// Contact",
     "download_resume": "Download Resume PDF",
     "email": "Email",
-    "footer": "© 2024 Vick Liao. Built with Next.js."
+    "footer": "Vick Liao. Built with Next.js.",
+    "built_with": "// Built with Next.js + Tailwind CSS + Framer Motion"
   }
 }

@@ -1,7 +1,6 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
-import { usePathname } from 'next/navigation';
+import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { resume } from '@/data/resume';
@@ -9,14 +8,13 @@ import type { Locale } from '@/i18n/config';
 
 export default function Experience() {
   const t = useTranslations('experience');
-  const pathname = usePathname();
-  const locale = (pathname.startsWith('/en') ? 'en' : 'zh') as Locale;
+  const locale = useLocale() as Locale;
   const [activeFile, setActiveFile] = useState('quickclick');
 
-  const activeExp = resume.experience.find((e) => e.id === activeFile)!;
+  const activeExp = resume.experience.find((e) => e.id === activeFile) ?? resume.experience[0];
 
   return (
-    <section id="experience" className="py-20 px-4">
+    <section id="experience" className="py-20 px-4" aria-label={t('title')}>
       <div className="max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, x: -20 }}
@@ -35,7 +33,7 @@ export default function Experience() {
         >
           {/* IDE title bar */}
           <div className="bg-terminal-bg border-b border-card-border px-4 py-2 flex items-center gap-2">
-            <div className="flex gap-1.5">
+            <div className="flex gap-1.5" aria-hidden="true">
               <div className="w-3 h-3 rounded-full bg-red-500" />
               <div className="w-3 h-3 rounded-full bg-yellow-500" />
               <div className="w-3 h-3 rounded-full bg-green-500" />
@@ -47,16 +45,18 @@ export default function Experience() {
 
           <div className="flex flex-col md:flex-row">
             {/* File tree sidebar */}
-            <div className="md:w-56 border-b md:border-b-0 md:border-r border-card-border p-3">
+            <div className="md:w-56 border-b md:border-b-0 md:border-r border-card-border p-3" role="tablist" aria-label="Experience files">
               <div className="text-text-muted text-xs mb-2 uppercase tracking-wider">
                 {t('explorer')}
               </div>
-              <div className="text-text-muted text-xs mb-1">
+              <div className="text-text-muted text-xs mb-1" aria-hidden="true">
                 <span className="text-terminal-green">{'▾'}</span> {t('folder')}
               </div>
               {resume.experience.map((exp) => (
                 <button
                   key={exp.id}
+                  role="tab"
+                  aria-selected={activeFile === exp.id}
                   onClick={() => setActiveFile(exp.id)}
                   className={`w-full text-left pl-4 py-1 text-xs transition-colors flex items-center gap-1.5 ${
                     activeFile === exp.id
@@ -64,15 +64,14 @@ export default function Experience() {
                       : 'text-text-muted hover:text-text-secondary'
                   }`}
                 >
-                  <span className="text-yellow-500">📄</span>
+                  <span className="text-yellow-500" aria-hidden="true">📄</span>
                   {exp.filename}
                 </button>
               ))}
             </div>
 
             {/* Code content area */}
-            <div className="flex-1 p-4 md:p-6 min-h-[300px]">
-              {/* Syntax-highlighted style */}
+            <div className="flex-1 p-4 md:p-6 min-h-[300px]" role="tabpanel">
               <div className="space-y-1 text-sm">
                 <div className="text-text-muted">
                   <span className="text-purple-400">{'interface'}</span>{' '}
@@ -116,11 +115,11 @@ export default function Experience() {
 
                 <div className="text-text-muted">{'}'}</div>
 
-                {/* Achievements as comments */}
-                <div className="mt-4 text-text-muted">{'// Achievements'}</div>
+                {/* #9: i18n achievements label */}
+                <div className="mt-4 text-text-muted">{t('achievements')}</div>
                 {activeExp.description[locale].map((desc, i) => (
                   <div key={i} className="pl-0 py-0.5">
-                    <span className="text-terminal-green mr-2">{'▸'}</span>
+                    <span className="text-terminal-green mr-2" aria-hidden="true">{'▸'}</span>
                     <span className="text-text-secondary text-xs md:text-sm">{desc}</span>
                   </div>
                 ))}

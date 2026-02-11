@@ -8,38 +8,51 @@
   "hero": {
     "greeting": "你好，我是",
     "cta_resume": "下載履歷",
-    "cta_projects": "查看專案"
+    "cta_projects": "查看專案",
+    "ascii_status": "系統狀態：在線",
+    "ascii_role": "職位：全端工程師",
+    "ascii_stack": "技術：Node.js / NestJS / React",
+    "ascii_open": "狀態：開放機會中"
   },
   "terminal": {
     "title": "terminal",
+    "prompt": "vick@portfolio:~$",
     "welcome": "歡迎來到 Vick 的互動終端機。輸入 'help' 查看可用指令。",
     "help_text": "可用指令：\n  help          - 顯示可用指令\n  ls            - 列出可查看的檔案\n  cat about.md  - 查看關於我\n  cat skills.json - 查看技能\n  open resume.pdf - 下載履歷 PDF\n  clear         - 清除畫面",
     "ls_output": "about.md    skills.json    resume.pdf    projects/",
-    "not_found": "指令未找到。輸入 'help' 查看可用指令。"
+    "not_found": "指令未找到。輸入 'help' 查看可用指令。",
+    "toggle_hint": "⌘K 開關"
   },
   "about": {
     "title": "// 關於我",
     "skills_title": "技能雷達",
     "frontend": "前端",
     "backend": "後端",
-    "devops": "DevOps"
+    "devops": "DevOps",
+    "stat_exp": "年經驗",
+    "stat_stores": "合作店家",
+    "stat_orders": "日訂單量"
   },
   "experience": {
     "title": "// 工作經歷",
     "explorer": "檔案總管",
-    "folder": "experience"
+    "folder": "experience",
+    "achievements": "// 工作成果"
   },
   "projects": {
     "title": "// 專案展示",
     "status": "狀態",
     "stack": "技術棧",
     "highlights": "亮點",
-    "view_arch": "查看架構圖"
+    "view_arch": "查看架構圖",
+    "arch_title": "QuickClick 架構圖",
+    "close": "關閉"
   },
   "contact": {
     "title": "// 聯絡我",
     "download_resume": "下載履歷 PDF",
     "email": "電子郵件",
-    "footer": "© 2024 廖致翰 (Vick Liao). 以 Next.js 打造。"
+    "footer": "廖致翰 (Vick Liao). 以 Next.js 打造。",
+    "built_with": "// Built with Next.js + Tailwind CSS + Framer Motion"
   }
 }

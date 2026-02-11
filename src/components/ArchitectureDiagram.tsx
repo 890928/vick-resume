@@ -95,7 +95,8 @@ const edges: Edge[] = [
 
 export default function ArchitectureDiagram() {
   return (
-    <div className="h-[450px] w-full bg-terminal-bg rounded border border-card-border">
+    // #3: Responsive height with max-h for mobile
+    <div className="h-[50vh] max-h-[450px] min-h-[300px] w-full bg-terminal-bg rounded border border-card-border" role="img" aria-label="QuickClick system architecture diagram">
       <ReactFlow
         nodes={nodes}
         edges={edges}
