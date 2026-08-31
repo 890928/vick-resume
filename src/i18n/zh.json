@@ -10,16 +10,16 @@
     "cta_resume": "下載履歷",
     "cta_projects": "查看專案",
     "ascii_status": "系統狀態：在線",
-    "ascii_role": "職位：全端工程師",
-    "ascii_stack": "技術：Node.js / NestJS / React",
+    "ascii_role": "職位：後端工程師",
+    "ascii_stack": "技術：NestJS / MySQL / Redis / K8s",
     "ascii_open": "狀態：開放機會中"
   },
   "terminal": {
     "title": "terminal",
     "prompt": "vick@portfolio:~$",
-    "welcome": "歡迎來到 Vick 的互動終端機。輸入 'help' 查看可用指令。",
-    "help_text": "可用指令：\n  help          - 顯示可用指令\n  ls            - 列出可查看的檔案\n  cat about.md  - 查看關於我\n  cat skills.json - 查看技能\n  open resume.pdf - 下載履歷 PDF\n  clear         - 清除畫面",
-    "ls_output": "about.md    skills.json    resume.pdf    projects/",
+    "welcome": "歡迎來到 Vick 的互動終端機。輸入 'help' 查看可用指令，或直接 'cat rca.log'。",
+    "help_text": "可用指令：\n  help          - 顯示可用指令\n  ls            - 列出可查看的檔案\n  whoami        - 我是誰\n  cat about.md  - 查看關於我\n  cat skills.json - 查看技能\n  cat rca.log   - 查看事故處理紀錄\n  open resume.pdf - 下載履歷 PDF\n  clear         - 清除畫面",
+    "ls_output": "about.md    skills.json    rca.log    resume.pdf    projects/",
     "not_found": "指令未找到。輸入 'help' 查看可用指令。",
     "toggle_hint": "⌘K 開關"
   },
@@ -29,9 +29,10 @@
     "frontend": "前端",
     "backend": "後端",
     "devops": "DevOps",
-    "stat_exp": "年經驗",
-    "stat_stores": "合作店家",
-    "stat_orders": "日訂單量"
+    "stat_exp": "年開發經驗",
+    "stat_stores": "王品門市線上營運",
+    "stat_tickets": "經手工單",
+    "stat_rca": "正式 RCA 報告"
   },
   "experience": {
     "title": "// 工作經歷",
@@ -45,8 +46,13 @@
     "stack": "技術棧",
     "highlights": "亮點",
     "view_arch": "查看架構圖",
-    "arch_title": "QuickClick 架構圖",
+    "arch_suffix": "架構圖",
     "close": "關閉"
+  },
+  "education": {
+    "title": "// 學歷",
+    "degree": "學位",
+    "major": "科系"
   },
   "contact": {
     "title": "// 聯絡我",

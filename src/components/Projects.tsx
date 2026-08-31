@@ -12,7 +12,8 @@ const ArchitectureDiagram = lazy(() => import('./ArchitectureDiagram'));
 export default function Projects() {
   const t = useTranslations('projects');
   const locale = useLocale() as Locale;
-  const [showArch, setShowArch] = useState(false);
+  const [showArch, setShowArch] = useState<string | null>(null);
+  const archProject = resume.projects.find((p) => p.id === showArch && p.archVariant);
 
   return (
     <section id="projects" className="py-24 px-4" aria-label={t('title')}>
@@ -94,11 +95,11 @@ export default function Projects() {
                 </div>
 
                 {/* Architecture diagram button */}
-                {project.hasArchDiagram && (
+                {project.archVariant && (
                   <button
-                    onClick={() => setShowArch(!showArch)}
+                    onClick={() => setShowArch(showArch === project.id ? null : project.id)}
                     className="btn-glow border border-terminal-green text-terminal-green px-4 py-1.5 text-xs hover:bg-terminal-green hover:text-background transition-all duration-300 rounded"
-                    aria-expanded={showArch}
+                    aria-expanded={showArch === project.id}
                   >
                     {t('view_arch')}
                   </button>
@@ -109,18 +110,19 @@ export default function Projects() {
         </div>
 
         {/* Architecture Diagram */}
-        {showArch && (
+        {archProject && archProject.archVariant && (
           <motion.div
+            key={archProject.id}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="mt-8 border border-card-border rounded-lg bg-card-bg p-6 glow-green-box"
           >
             <div className="flex items-center justify-between mb-4">
               <h3 className="gradient-text text-sm font-bold">
-                {t('arch_title')}
+                {archProject.name[locale]} — {t('arch_suffix')}
               </h3>
               <button
-                onClick={() => setShowArch(false)}
+                onClick={() => setShowArch(null)}
                 className="text-text-muted hover:text-terminal-green text-xs transition-colors"
                 aria-label={t('close')}
               >
@@ -136,7 +138,7 @@ export default function Projects() {
                   </div>
                 }
               >
-                <ArchitectureDiagram />
+                <ArchitectureDiagram variant={archProject.archVariant} />
               </Suspense>
             </ErrorBoundary>
           </motion.div>

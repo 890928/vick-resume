@@ -13,7 +13,7 @@ import { resume } from '@/data/resume';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-const categories = ['frontend', 'backend', 'devops'] as const;
+const categories = ['backend', 'devops', 'frontend'] as const;
 
 const colors: Record<string, { stroke: string; fill: string }> = {
   frontend: { stroke: '#00FF41', fill: '#00FF41' },

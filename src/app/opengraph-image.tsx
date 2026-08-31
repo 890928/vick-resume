@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'nodejs';
-export const alt = '廖致翰 Vick Liao | Full-Stack Engineer';
+export const alt = '廖致翰 Vick Liao | Backend Engineer';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -49,12 +49,12 @@ export default function OGImage() {
         {/* Title */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '32px' }}>
           <span style={{ color: '#00D1FF', fontSize: '28px' }}>~/</span>
-          <span style={{ color: '#E6EDF3', fontSize: '28px' }}>Full-Stack Engineer</span>
+          <span style={{ color: '#E6EDF3', fontSize: '28px' }}>Backend Engineer</span>
         </div>
 
         {/* Tags */}
         <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-          {['Node.js', 'NestJS', 'React', '.NET Core', 'Docker', 'MySQL'].map((tag) => (
+          {['NestJS', 'TypeScript', 'MySQL', 'Redis', 'K8s', 'Payments', 'E-Invoice'].map((tag) => (
             <span
               key={tag}
               style={{
@@ -73,7 +73,7 @@ export default function OGImage() {
 
         {/* Bottom subtitle */}
         <div style={{ marginTop: '40px', color: '#8B949E', fontSize: '18px' }}>
-          Backend-focused, building scalable system architectures
+          Ordering, payment & e-invoice systems that survive the dinner rush
         </div>
       </div>
     ),

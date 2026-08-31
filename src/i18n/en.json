@@ -10,16 +10,16 @@
     "cta_resume": "Download Resume",
     "cta_projects": "View Projects",
     "ascii_status": "System Status: Online",
-    "ascii_role": "Role: Full-Stack Engineer",
-    "ascii_stack": "Stack: Node.js / NestJS / React",
+    "ascii_role": "Role: Backend Engineer",
+    "ascii_stack": "Stack: NestJS / MySQL / Redis / K8s",
     "ascii_open": "Status: Open to opportunities"
   },
   "terminal": {
     "title": "terminal",
     "prompt": "vick@portfolio:~$",
-    "welcome": "Welcome to Vick's interactive terminal. Type 'help' for available commands.",
-    "help_text": "Available commands:\n  help          - Show available commands\n  ls            - List viewable files\n  cat about.md  - View about me\n  cat skills.json - View skills\n  open resume.pdf - Download resume PDF\n  clear         - Clear screen",
-    "ls_output": "about.md    skills.json    resume.pdf    projects/",
+    "welcome": "Welcome to Vick's interactive terminal. Type 'help' for commands, or jump straight to 'cat rca.log'.",
+    "help_text": "Available commands:\n  help          - Show available commands\n  ls            - List viewable files\n  whoami        - Who am I\n  cat about.md  - View about me\n  cat skills.json - View skills\n  cat rca.log   - View incident track record\n  open resume.pdf - Download resume PDF\n  clear         - Clear screen",
+    "ls_output": "about.md    skills.json    rca.log    resume.pdf    projects/",
     "not_found": "Command not found. Type 'help' for available commands.",
     "toggle_hint": "⌘K to toggle"
   },
@@ -29,9 +29,10 @@
     "frontend": "Frontend",
     "backend": "Backend",
     "devops": "DevOps",
-    "stat_exp": "Yrs Exp",
-    "stat_stores": "Stores",
-    "stat_orders": "Daily Orders"
+    "stat_exp": "Yrs Experience",
+    "stat_stores": "Wowprime Stores Live",
+    "stat_tickets": "Tickets Handled",
+    "stat_rca": "Formal RCA Reports"
   },
   "experience": {
     "title": "// Experience",
@@ -45,8 +46,13 @@
     "stack": "Stack",
     "highlights": "Highlights",
     "view_arch": "View Architecture",
-    "arch_title": "QuickClick Architecture",
+    "arch_suffix": "Architecture",
     "close": "Close"
+  },
+  "education": {
+    "title": "// Education",
+    "degree": "degree",
+    "major": "major"
   },
   "contact": {
     "title": "// Contact",

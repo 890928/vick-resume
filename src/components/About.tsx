@@ -61,10 +61,11 @@ export default function About() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               <AnimatedStat value="3" label={t('stat_exp')} delay={0} />
-              <AnimatedStat value="5K+" label={t('stat_stores')} delay={0.1} />
-              <AnimatedStat value="5K+" label={t('stat_orders')} delay={0.2} />
+              <AnimatedStat value="130+" label={t('stat_stores')} delay={0.1} />
+              <AnimatedStat value="2,000+" label={t('stat_tickets')} delay={0.2} />
+              <AnimatedStat value="11+" label={t('stat_rca')} delay={0.3} />
             </div>
           </motion.div>
 

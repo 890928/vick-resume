@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local working files (contain personal info / task notes)
+/廖致翰*.pdf
+*.resolved
+.claude/

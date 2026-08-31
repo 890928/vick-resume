@@ -3,6 +3,7 @@ import Hero from '@/components/Hero';
 import Terminal from '@/components/Terminal';
 import About from '@/components/About';
 import Experience from '@/components/Experience';
+import Education from '@/components/Education';
 import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
 import ScrollToTop from '@/components/ScrollToTop';
@@ -13,13 +14,13 @@ function JsonLd() {
     '@type': 'Person',
     name: 'Vick Liao',
     alternateName: '廖致翰',
-    jobTitle: 'Full-Stack Engineer',
+    jobTitle: 'Backend Engineer',
     url: 'https://vick-resume.vercel.app',
     sameAs: [
       'https://github.com/890928',
       'https://www.linkedin.com/in/vickliao',
     ],
-    knowsAbout: ['Node.js', 'NestJS', 'React', '.NET Core', 'Docker', 'MySQL'],
+    knowsAbout: ['Node.js', 'NestJS', 'TypeScript', 'MySQL', 'Redis', 'Kubernetes', 'Payment Integration', 'E-Invoice'],
     worksFor: {
       '@type': 'Organization',
       name: 'QuickClick / DianDian Global Co., Ltd.',
@@ -47,6 +48,7 @@ export default async function Home({
       <Hero />
       <About />
       <Experience />
+      <Education />
       <Projects />
       <Contact />
       <Terminal />

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<title>廖致翰 Vick Liao — 後端工程師</title>
+<style>
+  @page { size: A4; margin: 11mm 13mm 12mm; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --ink: #1a2129;
+    --muted: #5a6672;
+    --accent: #0e7a46;
+    --accent-soft: #eaf4ee;
+    --hairline: #e3e8ed;
+    --mono: "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  html, body { background: #fff; }
+  body {
+    font-family: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    color: var(--ink);
+    font-size: 9.3pt;
+    line-height: 1.52;
+  }
+
+  /* ── Header ── */
+  header { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 8pt; border-bottom: 2px solid var(--ink); }
+  .name-block h1 { font-size: 21pt; font-weight: 700; letter-spacing: 0.5pt; }
+  .name-block h1 .en { font-family: var(--mono); font-size: 12.5pt; color: var(--muted); font-weight: 500; margin-left: 6pt; }
+  .role { font-family: var(--mono); color: var(--accent); font-size: 10.5pt; font-weight: 600; margin-top: 3pt; }
+  .contact { text-align: right; font-size: 8.3pt; color: var(--muted); line-height: 1.7; }
+  .contact b { color: var(--ink); font-weight: 600; }
+  .contact .mono { font-family: var(--mono); font-size: 8pt; }
+
+  /* ── Summary ── */
+  .tagline { margin-top: 9pt; font-size: 10.2pt; font-weight: 600; }
+  .tagline::before { content: "$ "; font-family: var(--mono); color: var(--accent); font-weight: 700; }
+  .summary { margin-top: 4pt; color: #333c46; }
+
+  /* ── Stats strip ── */
+  .stats { display: flex; gap: 6pt; margin-top: 8pt; }
+  .stat { flex: 1; background: var(--accent-soft); border-left: 2.5px solid var(--accent); padding: 4pt 7pt; }
+  .stat .v { font-family: var(--mono); font-weight: 700; font-size: 11.5pt; color: var(--accent); }
+  .stat .l { font-size: 7.4pt; color: var(--muted); margin-top: 1pt; }
+
+  /* ── Sections ── */
+  section { margin-top: 11pt; }
+  h2 { font-family: var(--mono); font-size: 10.5pt; color: var(--ink); border-bottom: 1px solid var(--hairline); padding-bottom: 3pt; margin-bottom: 6pt; }
+  h2::before { content: "// "; color: var(--accent); }
+
+  .job { break-inside: avoid; margin-bottom: 8pt; }
+  .job-head { display: flex; justify-content: space-between; align-items: baseline; }
+  .job-head h3 { font-size: 10.3pt; font-weight: 700; }
+  .job-head h3 .t { color: var(--accent); font-weight: 600; }
+  .period { font-family: var(--mono); font-size: 8pt; color: var(--muted); }
+  .stack-line { font-family: var(--mono); font-size: 7.6pt; color: var(--muted); margin: 2pt 0 4pt; }
+  ul { list-style: none; }
+  li { padding-left: 11pt; position: relative; margin-bottom: 2.6pt; }
+  li::before { content: "▸"; position: absolute; left: 0; color: var(--accent); font-size: 8pt; top: 0.5pt; }
+  li b { font-weight: 600; }
+  .intern li { margin-bottom: 1.5pt; color: #333c46; }
+
+  /* ── Projects ── */
+  .proj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6pt; }
+  .proj { border: 1px solid var(--hairline); border-top: 2px solid var(--accent); padding: 5pt 8pt 6pt; break-inside: avoid; }
+  .proj h4 { font-size: 9.3pt; font-weight: 700; }
+  .proj .pstack { font-family: var(--mono); font-size: 7pt; color: var(--muted); margin: 1.5pt 0 3pt; }
+  .proj ul li { font-size: 8.4pt; margin-bottom: 1.5pt; }
+
+  /* ── Skills ── */
+  .skill-row { display: flex; margin-bottom: 3pt; }
+  .skill-row .k { flex: 0 0 58pt; font-family: var(--mono); font-size: 8pt; color: var(--accent); font-weight: 600; padding-top: 1pt; }
+  .skill-row .v { flex: 1; }
+
+  /* ── Education / footer ── */
+  .edu { display: flex; justify-content: space-between; align-items: baseline; }
+  .footnote { margin-top: 10pt; padding-top: 5pt; border-top: 1px solid var(--hairline); font-family: var(--mono); font-size: 7.6pt; color: var(--muted); }
+  .footnote span { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="name-block">
+    <h1>廖致翰<span class="en">Vick Liao</span></h1>
+    <div class="role">後端工程師 Backend Engineer</div>
+  </div>
+  <div class="contact">
+    <div><b>Email</b>　<span class="mono">try890928@gmail.com</span></div>
+    <div><b>Phone</b>　<span class="mono">0908-268-080</span></div>
+    <div><b>GitHub</b>　<span class="mono">github.com/890928</span></div>
+    <div><b>Portfolio</b>　<span class="mono">vick-resume.vercel.app</span></div>
+  </div>
+</header>
+
+<div class="tagline">打造撐得住用餐尖峰的點餐、金流與電子發票系統——寫程式，也寫 RCA。</div>
+<p class="summary">3 年後端經驗（Node.js／TypeScript、NestJS、MySQL、Redis）。現於點點全球（快一點 QuickClick）獨立負責王品集團掃碼點餐系統後端（130+ 門市線上營運），並從 0 到 1 建置電子發票中台與多銀行 TWQR 金流串接；擅長高併發訂單系統、第三方整合、DB 效能治理與事故根因分析。</p>
+
+<div class="stats">
+  <div class="stat"><div class="v">3</div><div class="l">年開發經驗</div></div>
+  <div class="stat"><div class="v">130+</div><div class="l">王品門市線上營運</div></div>
+  <div class="stat"><div class="v">2,000+</div><div class="l">經手工單</div></div>
+  <div class="stat"><div class="v">116</div><div class="l">技術文件</div></div>
+  <div class="stat"><div class="v">11+</div><div class="l">正式 RCA 報告</div></div>
+</div>
+
+<section>
+  <h2>工作經歷</h2>
+
+  <div class="job">
+    <div class="job-head">
+      <h3>點點全球（QuickClick 快一點）<span class="t">｜後端工程師</span></h3>
+      <span class="period">2024.09 – 至今</span>
+    </div>
+    <div class="stack-line">NestJS · TypeScript · MySQL · Redis / BullMQ · GCP(GKE) / AWS · Docker / K8s · ELK</div>
+    <ul>
+      <li><b>獨立負責王品集團掃碼點餐系統（QC 4.0）後端</b>：以 NestJS 從零建置訂單、菜單同步、購物車、揪團與支付模組，串接集團中台與 POS，上線後支撐 130+ 門市，持續開發吃到飽、會員 SSO、點數票券等功能</li>
+      <li><b>從 0 到 1 設計並落地電子發票中台</b>：綠界相容 API、發票號碼池、佇列化上傳與冪等／限流／熔斷機制，搭配管理後台與不停機 canary 遷移，既有客戶零改碼轉移</li>
+      <li><b>完成三家銀行 TWQR（台灣 Pay）與 AFTEE 金流串接</b>：主掃／被掃／退款／對帳，跨 5 個服務同步改造並全環境驗測上線</li>
+      <li><b>主導推播系統遷移</b>（LINE Notify 停服因應）：Email＋Firestore 雙軌、訂閱管理後台、跨系統 DB 資料遷移，如期無痛切換</li>
+      <li><b>參與次世代點餐中台架構設計</b>（NestJS monorepo、Hexagonal、adapter-per-vendor），規劃收斂 10+ 個遺留服務；系統性 DB 治理：慢查詢優化、索引、壓測與百 GB 級大表分析</li>
+      <li><b>維運與根因分析</b>：兩年經手 2,000+ 筆工單、產出 11+ 篇正式 RCA，曾以行級程式碼證據定位 webhook 重試風暴造成 20 倍流量放大的掉單事故，並以三階段 Hotfix 根治</li>
+      <li><b>整合 Foodpanda／UberEats 與多家 POS 廠商</b>：外送平台 API 改版專案化承接、菜單同步併發限流、訂單防重與冪等設計</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <h3>雲端生活家<span class="t">｜後端工程師</span></h3>
+      <span class="period">2023.06 – 2024.08</span>
+    </div>
+    <div class="stack-line">.NET Core · C# · Node.js · React · MySQL / MSSQL · Jenkins · Docker</div>
+    <ul>
+      <li>維運公司產品並開發外包專案：會員服務平台、App 訂單系統、租屋管理平台、售票平台</li>
+      <li>租屋管理平台：QRCode 掃碼與通知模組，串接 LINE Notify、簡訊、第三方金流與電子發票服務，含門禁硬體整合</li>
+      <li>票務平台（兒童新樂園、黑膠博物館）：售票排程、周邊商品進銷存、報表與發票金流</li>
+      <li>熟悉 Git Flow，參與 Jenkins CI/CD 環境維護，以 Docker 部署專案</li>
+    </ul>
+  </div>
+
+  <div class="job intern">
+    <div class="job-head">
+      <h3>實習經歷</h3>
+      <span class="period">2022.07 – 2023.06</span>
+    </div>
+    <ul>
+      <li><b>中國信託金控</b>（2023.02–06）：RPA 流程自動化、Angular 前端、Java／Spring Boot 後端</li>
+      <li><b>國泰人壽</b>（2022.07–2023.01）：Vue 前端、Java／Spring Boot 後端、PostgreSQL，全端開發</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>代表專案</h2>
+  <div class="proj-grid">
+    <div class="proj">
+      <h4>王品集團掃碼點餐系統 QC 4.0</h4>
+      <div class="pstack">NestJS · TypeORM · MySQL · Redis · BullMQ · GKE</div>
+      <ul>
+        <li>130+ 門市內用／外帶掃碼點餐，後端獨立建置</li>
+        <li>集團中台與 POS 雙向串接：菜單同步、狀態機、桌況</li>
+        <li>揪團共點、吃到飽卡控、會員 SSO、點數票券</li>
+      </ul>
+    </div>
+    <div class="proj">
+      <h4>電子發票中台</h4>
+      <div class="pstack">NestJS · MySQL · Redis · Bull · GCP</div>
+      <ul>
+        <li>統一取號／開立／作廢／折讓與加值中心上傳</li>
+        <li>號碼池、冪等、限流、熔斷、DLQ 與管理後台</li>
+        <li>綠界相容 API：既有客戶零改碼、不停機 canary 遷移</li>
+      </ul>
+    </div>
+    <div class="proj">
+      <h4>TWQR 多銀行金流整合</h4>
+      <div class="pstack">Node.js · FISC XML · MySQL · Redis</div>
+      <ul>
+        <li>3 家銀行 × 主掃／被掃／退款／對帳</li>
+        <li>銀行端協定（FISC XML、簽章加密）到全產品線落地</li>
+        <li>跨 5 個服務同步改造上線；另完成 AFTEE 先買後付</li>
+      </ul>
+    </div>
+    <div class="proj">
+      <h4>推播系統遷移（LINE Notify 停服因應）</h4>
+      <div class="pstack">Node.js · Firestore · AWS SES</div>
+      <ul>
+        <li>Email＋Firestore 即時推播雙軌與訂閱管理後台</li>
+        <li>跨系統 DB 資料遷移與相容代理，零中斷切換</li>
+        <li>後續強化 webhook 投遞：重試策略與結構化日誌</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>技能</h2>
+  <div class="skill-row"><div class="k">後端</div><div class="v">Node.js／TypeScript、NestJS、RESTful API 設計、Webhook 工程（HMAC 簽章／冪等／重試／DLQ）</div></div>
+  <div class="skill-row"><div class="k">資料</div><div class="v">MySQL（Schema 設計／慢查詢優化／索引／壓測）、Redis、BullMQ、Firestore</div></div>
+  <div class="skill-row"><div class="k">雲端維運</div><div class="v">GCP（GKE、Cloud SQL）、AWS（ECS、SES）、Docker／K8s、ELK 日誌分析、CI/CD</div></div>
+  <div class="skill-row"><div class="k">領域</div><div class="v">金流（TWQR／LINE Pay／代收付）、台灣電子發票（字軌／載具／作廢折讓）、POS／外送平台整合</div></div>
+  <div class="skill-row"><div class="k">其他</div><div class="v">.NET Core／C#、React／Vue、AI 輔助開發流程（Claude Code／Codex／Gemini）與團隊 SOP 建立</div></div>
+</section>
+
+<section>
+  <h2>學歷</h2>
+  <div class="edu">
+    <div><b>國立臺中科技大學</b>　資訊管理系 學士</div>
+    <span class="period">2019 – 2023</span>
+  </div>
+</section>
+
+<div class="footnote">$ open <span>https://vick-resume.vercel.app</span> — 互動架構圖、完整專案與 rca.log 都在線上版</div>
+
+</body>
+</html>

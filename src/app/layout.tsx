@@ -4,15 +4,19 @@ import './globals.css';
 // #1: Full SEO metadata with OG tags
 export const metadata: Metadata = {
   metadataBase: new URL('https://vick-resume.vercel.app'),
-  title: '廖致翰 Vick Liao | Full-Stack Engineer',
+  title: '廖致翰 Vick Liao | Backend Engineer',
   description:
-    'Full-stack engineer specializing in Node.js, NestJS, React, and Docker. 3+ years experience serving 5,000+ stores with 100K+ orders.',
+    'Backend engineer building F&B ordering, payment and e-invoice systems — NestJS, MySQL, Redis, GCP/K8s. Built the Wowprime Group scan-to-order backend (130+ stores) and an ECPay-compatible e-invoice hub from scratch.',
   keywords: [
-    'Full-Stack Engineer',
+    'Backend Engineer',
     'Node.js',
     'NestJS',
-    'React',
-    'Docker',
+    'TypeScript',
+    'MySQL',
+    'Redis',
+    'Kubernetes',
+    '金流串接',
+    '電子發票',
     '廖致翰',
     'Vick Liao',
   ],
@@ -20,9 +24,9 @@ export const metadata: Metadata = {
     icon: '/favicon.svg',
   },
   openGraph: {
-    title: '廖致翰 Vick Liao | Full-Stack Engineer',
+    title: '廖致翰 Vick Liao | Backend Engineer',
     description:
-      'Full-stack engineer specializing in Node.js, NestJS, React, and Docker.',
+      'Backend engineer building F&B ordering, payment and e-invoice systems — NestJS, MySQL, Redis, GCP/K8s.',
     url: 'https://vick-resume.vercel.app',
     siteName: 'Vick Liao Portfolio',
     locale: 'zh_TW',
@@ -33,15 +37,15 @@ export const metadata: Metadata = {
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: '廖致翰 Vick Liao | Full-Stack Engineer',
+        alt: '廖致翰 Vick Liao | Backend Engineer',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: '廖致翰 Vick Liao | Full-Stack Engineer',
+    title: '廖致翰 Vick Liao | Backend Engineer',
     description:
-      'Full-stack engineer specializing in Node.js, NestJS, React, and Docker.',
+      'Backend engineer building F&B ordering, payment and e-invoice systems — NestJS, MySQL, Redis, GCP/K8s.',
     images: ['/opengraph-image'],
   },
   alternates: {
