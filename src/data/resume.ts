@@ -20,8 +20,8 @@ export const resume = {
   github: 'https://github.com/890928',
   linkedin: 'https://www.linkedin.com/in/vickliao',
   about: {
-    zh: '3 年後端經驗，現於點點全球（快一點 QuickClick）負責餐飲 SaaS 核心系統：從零建置王品集團掃碼點餐系統後端（130+ 門市）、電子發票中台與多銀行 TWQR 金流串接，並參與次世代訂單中台的架構設計。兩年經手 2,000+ 筆工單、產出 116 篇技術文件與 11+ 篇正式 RCA——擅長在高併發、多方整合的系統裡找到根因，並把它變成不會再發生的架構。',
-    en: 'Backend engineer with 3 years of experience, building F&B SaaS at QuickClick (DianDian Global): built the Wowprime Group scan-to-order backend from scratch (130+ restaurants), an e-invoice hub, and multi-bank TWQR payment integrations, while co-designing the next-gen ordering platform. 2,000+ tickets, 116 technical docs and 11+ formal RCAs in two years — I find root causes in high-concurrency, multi-vendor systems, then turn them into architecture that won’t fail the same way twice.',
+    zh: '4 年開發經驗（後端為核心），現於點點全球（快一點 QuickClick）負責餐飲 SaaS 核心系統：從零建置王品集團掃碼點餐系統後端（130+ 門市）、電子發票中台與多銀行 TWQR 金流串接，並參與次世代訂單中台的架構設計。兩年經手 2,000+ 筆工單、產出 116 篇技術文件與 11+ 篇正式 RCA——擅長在高併發、多方整合的系統裡找到根因，並把它變成不會再發生的架構。',
+    en: 'Backend engineer with 4 years of development experience, building F&B SaaS at QuickClick (DianDian Global): built the Wowprime Group scan-to-order backend from scratch (130+ restaurants), an e-invoice hub, and multi-bank TWQR payment integrations, while co-designing the next-gen ordering platform. 2,000+ tickets, 116 technical docs and 11+ formal RCAs in two years — I find root causes in high-concurrency, multi-vendor systems, then turn them into architecture that won’t fail the same way twice.',
   },
   typewriterWords: [
     'Backend Engineer',
